@@ -3,9 +3,25 @@ const scene = document.querySelector('#bookScene');
 const openButton = document.querySelector('#openInvitation');
 const book = document.querySelector('.book');
 const guestName = document.querySelector('#guestName');
+const scrollHint = document.querySelector('#scrollHint');
+
+document.documentElement.classList.add('welcome-locked');
+document.body.classList.add('welcome-locked');
+
+function lockPageScroll() {
+  document.documentElement.classList.add('invitation-locked');
+  document.body.classList.add('invitation-locked');
+}
+
+function unlockPageScroll() {
+  document.documentElement.classList.remove('invitation-locked');
+  document.body.classList.remove('invitation-locked');
+}
 
 function showScene() {
   openButton.disabled = true;
+  document.documentElement.classList.remove('welcome-locked');
+  document.body.classList.remove('welcome-locked');
   welcome.style.opacity = '0';
   welcome.style.transform = 'scale(.98)';
   setTimeout(() => {
@@ -16,6 +32,7 @@ function showScene() {
     welcome.style.display = 'none';
     scene.style.display = 'block';
     scene.classList.add('visible');
+    lockPageScroll();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
@@ -26,6 +43,12 @@ openButton.addEventListener('click', showScene);
 book.addEventListener('click', () => {
   if (book.classList.contains('open')) return;
   book.classList.add('open');
+  unlockPageScroll();
+  if (scrollHint) {
+    scrollHint.classList.remove('is-hidden');
+    scrollHint.classList.add('is-visible');
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   book.setAttribute('aria-expanded', 'true');
   book.setAttribute('aria-label', 'Davetiyeniz açıldı');
   setTimeout(() => document.querySelector('#details').classList.add('show'), 650);
@@ -110,4 +133,17 @@ const showBuildFooter = () => {
 if (bookScene) {
   const observer = new MutationObserver(showBuildFooter);
   observer.observe(bookScene, { attributes: true, attributeFilter: ['class'] });
+}
+
+
+if (scrollHint) {
+  scrollHint.addEventListener('click', () => {
+    scrollHint.classList.add('is-hidden');
+    const details = document.querySelector('#details');
+    if (details) details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) scrollHint.classList.add('is-hidden');
+  }, { passive: true });
 }

@@ -712,6 +712,15 @@
   opacity: .22;
   filter: blur(.15px);
   transform: scale(1.03);
+  transform-origin: center;
+  animation: welcomeLeavesSway 9s ease-in-out infinite alternate;
+}
+
+/* Köşe yaprakları artık tamamen hareketsiz değil; çok hafif nefes/salınım efekti. */
+@keyframes welcomeLeavesSway {
+  0%   { transform: scale(1.03) translate3d(-2px, 0, 0) rotate(-.25deg); }
+  50%  { transform: scale(1.035) translate3d(1px, 2px, 0) rotate(.2deg); }
+  100% { transform: scale(1.03) translate3d(3px, -1px, 0) rotate(.35deg); }
 }
 #welcome > * {
   position: relative;
@@ -723,3 +732,59 @@
     opacity: .20;
   }
 }
+
+
+/* İlk kapak açılmadan sayfa kaydırılamaz. Davetiye açılınca kilit kaldırılır. */
+html.welcome-locked,
+body.welcome-locked {
+  overflow: hidden !important;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body.welcome-locked {
+  touch-action: none;
+}
+
+
+/* Davetiye kapağı açılana kadar ikinci aşamada da sayfa kaydırmayı kilitle. */
+html.invitation-locked,
+body.invitation-locked {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+html.invitation-locked #bookScene,
+body.invitation-locked #bookScene {
+  touch-action: none;
+}
+
+/* Mobil ve masaüstünde davetiye açıldıktan sonra nazik kaydırma yönlendirmesi */
+.scroll-hint {
+  display:none;
+  position:relative;
+  margin:22px auto 0;
+  padding:7px 14px 8px;
+  border:0;
+  background:transparent;
+  color:var(--green);
+  font:500 .72rem Lora,serif;
+  letter-spacing:.08em;
+  cursor:pointer;
+  opacity:.78;
+  transition:opacity .35s ease, transform .35s ease;
+}
+.scroll-hint.is-visible { display:inline-flex; align-items:center; gap:7px; }
+.scroll-hint:hover { opacity:1; transform:translateY(-2px); }
+.scroll-hint-arrow {
+  display:inline-block;
+  font-size:1.15rem;
+  line-height:1;
+  animation:scrollHintFloat 1.5s ease-in-out infinite;
+}
+@keyframes scrollHintFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(5px); }
+}
+.scroll-hint.is-hidden { opacity:0; pointer-events:none; transform:translateY(5px); }
