@@ -1,0 +1,725 @@
+:root{--green:#476e4a;--deep:#294d31;--paper:#fffdf8;--ink:#293328;--muted:#6c7569;--gold:#bd9655}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;color:var(--ink);font-family:Lora,serif;background:linear-gradient(135deg,#f6f4eb,#e6eee4 48%,#f7f1e6);overflow-x:hidden}#lightOverlay{position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle at 13% 5%,rgba(255,255,255,.94),transparent 31%),radial-gradient(circle at 88% 90%,rgba(178,210,177,.35),transparent 36%)}#backgroundLeaves{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}.leaf{position:absolute;top:-10vh;width:42px;opacity:.13;animation:fall linear forwards}.leaf img{width:100%;filter:drop-shadow(0 4px 5px rgba(30,55,30,.12))}@keyframes fall{to{transform:translate(var(--drift),115vh) rotate(330deg);opacity:0}}#welcome{min-height:100svh;display:grid;place-items:center;padding:32px 20px;transition:opacity .65s ease,transform .65s ease}.hero{max-width:720px;text-align:center;animation:rise 1s both}.hero-leaf,.cover-flower{display:block;color:var(--green);font-size:44px;line-height:1}.eyebrow,.section-kicker{margin:18px 0 11px;color:var(--green);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}.hero h1{margin:0;font:700 clamp(3rem,10vw,6.2rem)/.82 "Cormorant Garamond",serif;letter-spacing:-.04em}.hero h1 span{color:var(--green);font-weight:500}.guest-name{min-height:1.5em;margin:27px auto 0;color:var(--green);font-size:1.04rem}.hero-text{max-width:570px;margin:20px auto 0;font-size:clamp(1rem,2.4vw,1.23rem);font-style:italic;line-height:1.8;color:#566050}button,.btn{font:600 .9rem Lora,serif}.hero button,.btn,.calendar-btn{border:0;cursor:pointer;border-radius:999px;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}.hero button{margin-top:38px;padding:16px 26px;background:var(--green);color:#fff;box-shadow:0 12px 28px rgba(40,78,45,.24)}.hero button:hover,.btn:hover,.calendar-btn:hover{transform:translateY(-3px);box-shadow:0 14px 24px rgba(40,78,45,.2)}.hero button span{padding-left:9px;font-size:1.2rem}.hint{margin:17px 0 0;color:#7d877b;font-size:.73rem}.scene{display:none;position:relative;max-width:1050px;margin:0 auto;padding:54px 24px 85px;text-align:center}.scene.visible{display:block;animation:rise .8s both}.book-glow{position:absolute;left:50%;top:210px;width:min(80vw,580px);height:390px;transform:translateX(-50%);z-index:-1;background:radial-gradient(ellipse,rgba(94,143,98,.29),transparent 68%);filter:blur(25px)}.book{position:relative;width:min(84vw,430px);aspect-ratio:1060/1484;padding:0;border:0;border-radius:15px;background:var(--paper);perspective:1400px;cursor:pointer;box-shadow:0 30px 55px rgba(42,59,41,.19)}.book-page,.book-cover{position:absolute;inset:0;display:block;border-radius:15px;overflow:hidden}.book-page img{display:block;width:100%;height:100%;object-fit:cover;filter:blur(4px);transform:scale(.985);transition:filter .8s ease,transform .8s ease}.book-cover{z-index:2;transform-origin:left center;-webkit-backface-visibility:hidden;backface-visibility:hidden;background-image:url('../assets/book_cover_watercolor.jpg');background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 20px 45px rgba(25,55,31,.22);transition:transform 1.15s cubic-bezier(.22,.61,.36,1)}.book-cover{background-size:100% 100%;background-position:center;background-repeat:no-repeat;}.book-cover:before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.34)}.cover-content{position:absolute;inset:0;display:grid;place-content:center;gap:17px;color:#fff}.cover-content strong{font:600 clamp(2.4rem,8vw,3.55rem)/.79 "Cormorant Garamond",serif}.cover-content small{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;opacity:.88}.book.open .book-cover{transform:rotateY(-118deg)}.book.open .book-page img{filter:none;transform:none}.details,.tema,.thanks{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.details.show,.tema.show,.thanks.show{opacity:1;transform:none}.details{margin:54px auto 0}.event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:720px;margin:20px auto}.event-card{padding:29px 20px 25px;background:rgba(255,253,248,.67);border:1px solid rgba(71,110,74,.16);border-radius:18px;box-shadow:0 12px 28px rgba(65,87,63,.08)}.event-card.featured{border-color:rgba(71,110,74,.35)}.event-icon{color:var(--green);font-size:1.7rem}.event-card h2{margin:8px 0 14px;font:600 2rem "Cormorant Garamond",serif}.event-card p{margin:0 0 14px;font-size:.84rem;line-height:1.65;color:#586056}.btn{display:inline-block;margin-top:3px;padding:11px 17px;background:var(--green);color:#fff;font-size:.76rem}.btn-secondary{background:#6c806d}.calendar-btn{padding:13px 20px;background:transparent;color:var(--deep);border:1px solid rgba(41,77,49,.38)}.tema{max-width:650px;margin:88px auto 0;padding:35px 25px;border-top:1px solid rgba(71,110,74,.2);border-bottom:1px solid rgba(71,110,74,.2)}.tema>span{font-size:1.5rem}.tema h2{margin:7px 0 13px;color:var(--green);font:600 clamp(2rem,7vw,3rem) "Cormorant Garamond",serif}.tema p{margin:0;font-size:.94rem;line-height:1.8;color:#596256}.thanks{margin:65px auto 0}.thanks p{margin:0 auto 20px;max-width:500px;font:italic clamp(1.2rem,4vw,1.5rem)/1.45 "Cormorant Garamond",serif}.thanks small,.thanks strong{display:block}.thanks small{margin-bottom:6px;color:var(--muted);font-size:.76rem}.thanks strong{color:var(--green);font:600 1.7rem "Cormorant Garamond",serif}footer{padding:25px 20px;text-align:center;color:#657060;font-size:.75rem;background:rgba(255,255,255,.35)}@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}@media(max-width:600px){.scene{padding-inline:16px}.event-grid{grid-template-columns:1fr;gap:13px}.event-card{padding:25px 18px}.book{width:min(89vw,430px)}.hero h1{font-size:clamp(3.25rem,17vw,4.7rem)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ===== Kına + Düğün etkinlik kartları ===== */
+.details {
+  margin: 54px auto 0;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  max-width: 900px;
+  margin: 20px auto 0;
+}
+
+.event-card {
+  padding: 28px 22px 22px;
+  background: rgba(255,253,248,.82);
+  border: 1px solid rgba(189,150,85,.28);
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(65,87,63,.09);
+  overflow: hidden;
+}
+
+.event-card.event-dugun {
+  border-color: rgba(71,110,74,.30);
+}
+
+.event-icon {
+  color: var(--green);
+  font-size: 1.65rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.event-label {
+  margin: 0 0 6px !important;
+  color: var(--green) !important;
+  font-size: .68rem !important;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.event-card h2 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font: 600 clamp(2rem, 4vw, 2.55rem)/1.05 "Cormorant Garamond", serif;
+}
+
+.event-card .event-date {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-size: .78rem !important;
+  line-height: 1.5;
+}
+
+.event-countdown-label {
+  margin: 24px 0 10px;
+  color: var(--muted);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .17em;
+}
+
+.event-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.event-countdown > div {
+  min-width: 0;
+  padding: 11px 3px 9px;
+  border-radius: 14px;
+  background: rgba(189,150,85,.10);
+}
+
+.event-countdown strong {
+  display: block;
+  color: var(--deep);
+  font: 600 clamp(2rem, 4.5vw, 2.65rem)/1 "Cormorant Garamond", serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.event-countdown span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: .53rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.event-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 17px;
+  padding: 12px 13px;
+  border-radius: 14px;
+  background: rgba(71,110,74,.055);
+  text-align: left;
+}
+
+.location-icon {
+  flex: 0 0 auto;
+  color: var(--green);
+  font-size: 1.25rem;
+}
+
+.location-label,
+.location-name {
+  display: block;
+}
+
+.location-label {
+  color: var(--muted);
+  font-size: .57rem;
+  letter-spacing: .15em;
+}
+
+.location-name {
+  margin-top: 3px;
+  color: var(--ink);
+  font-size: .73rem;
+  line-height: 1.35;
+}
+
+.event-map-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 45px;
+  margin-top: 11px;
+  padding: 10px 15px;
+  border: 1px solid rgba(189,150,85,.38);
+  border-radius: 999px;
+  background: rgba(189,150,85,.08);
+  color: var(--deep);
+  text-decoration: none;
+  font: 600 .76rem "Lora", serif;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.event-map-button:hover {
+  transform: translateY(-2px);
+  background: rgba(189,150,85,.15);
+}
+
+.event-map-button span {
+  font-size: 1rem;
+}
+
+@media(max-width: 600px) {
+  .details {
+    margin-top: 38px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 14px;
+  }
+
+  .event-card {
+    padding: 24px 14px 16px;
+    border-radius: 21px;
+  }
+
+  .event-icon {
+    font-size: 1.45rem;
+    margin-bottom: 7px;
+  }
+
+  .event-label {
+    font-size: .61rem !important;
+    letter-spacing: .20em;
+  }
+
+  .event-card h2 {
+    font-size: 2.05rem;
+    margin-bottom: 7px;
+  }
+
+  .event-card .event-date {
+    font-size: .72rem !important;
+  }
+
+  .event-countdown-label {
+    margin-top: 19px;
+    margin-bottom: 9px;
+    font-size: .59rem;
+  }
+
+  .event-countdown {
+    gap: 5px;
+  }
+
+  .event-countdown > div {
+    padding: 10px 2px 8px;
+    border-radius: 12px;
+  }
+
+  .event-countdown strong {
+    font-size: 2.05rem;
+  }
+
+  .event-countdown span {
+    font-size: .49rem;
+    margin-top: 5px;
+  }
+
+  .event-location {
+    margin-top: 14px;
+    padding: 11px 12px;
+  }
+
+  .location-name {
+    font-size: .68rem;
+  }
+
+  .event-map-button {
+    min-height: 43px;
+    margin-top: 9px;
+  }
+}
+
+@media(max-width: 360px) {
+  .event-card {
+    padding-inline: 11px;
+  }
+
+  .event-countdown {
+    gap: 3px;
+  }
+
+  .event-countdown strong {
+    font-size: 1.82rem;
+  }
+
+  .event-countdown span {
+    font-size: .45rem;
+  }
+}
+
+/* ===== Zarif dijital davetiye kapağı ===== */
+#welcome {
+  min-height: 100svh;
+  padding: 20px 14px;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255,255,255,.72), transparent 34%),
+    transparent;
+}
+
+.cover-shell {
+  width: min(100%, 560px);
+  padding: 8px;
+}
+
+.cover-frame {
+  position: relative;
+  min-height: min(88svh, 760px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 28px 44px;
+  overflow: hidden;
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(255,253,248,.96), rgba(244,241,229,.90));
+  border: 1px solid rgba(189,150,85,.38);
+  box-shadow:
+    0 24px 60px rgba(42,63,42,.13),
+    inset 0 0 0 7px rgba(255,255,255,.32),
+    inset 0 0 0 8px rgba(189,150,85,.10);
+  border-radius: 8px;
+}
+
+.cover-frame::before,
+.cover-frame::after {
+  content: "";
+  position: absolute;
+  width: 115px;
+  height: 115px;
+  border: 1px solid rgba(71,110,74,.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cover-frame::before {
+  top: -72px;
+  left: -72px;
+}
+
+.cover-frame::after {
+  right: -72px;
+  bottom: -72px;
+}
+
+.cover-ornament {
+  color: var(--green);
+  font-size: 30px;
+  line-height: 1;
+  opacity: .82;
+}
+
+.cover-ornament-top {
+  margin-bottom: 27px;
+}
+
+.cover-ornament-bottom {
+  position: absolute;
+  bottom: 24px;
+  transform: rotate(180deg);
+  font-size: 22px;
+  opacity: .55;
+}
+
+.cover-kicker {
+  margin: 0;
+  color: var(--green);
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .28em;
+}
+
+.cover-rule {
+  display: flex;
+  align-items: center;
+  width: min(220px, 68%);
+  margin: 17px auto 25px;
+  color: var(--gold);
+  font-size: .75rem;
+}
+
+.cover-rule::before,
+.cover-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(189,150,85,.42);
+}
+
+.cover-rule span {
+  padding: 0 12px;
+}
+
+.cover-intro {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: .76rem;
+  font-style: italic;
+}
+
+.cover-frame h1 {
+  margin: 0;
+  color: var(--deep);
+  font: 600 clamp(3.15rem, 13vw, 5.4rem)/.82 "Cormorant Garamond", serif;
+  letter-spacing: -.045em;
+}
+
+.cover-frame h1 span {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.cover-subtitle {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.cover-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 31px;
+  color: var(--deep);
+  font: 600 1rem "Cormorant Garamond", serif;
+  letter-spacing: .14em;
+}
+
+.cover-date i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.cover-frame .guest-name {
+  max-width: 340px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+.cover-frame button {
+  margin-top: 29px;
+  padding: 14px 23px;
+  border: 1px solid rgba(71,110,74,.2);
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 12px 25px rgba(40,78,45,.20);
+  cursor: pointer;
+  font: 600 .78rem Lora, serif;
+  letter-spacing: .02em;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cover-frame button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 28px rgba(40,78,45,.25);
+}
+
+.cover-frame button span {
+  padding-left: 8px;
+  font-size: 1rem;
+}
+
+.cover-frame .hint {
+  margin: 12px 0 0;
+  color: #899184;
+  font-size: .58rem;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 600px) {
+  #welcome {
+    padding: 14px 11px;
+  }
+
+  .cover-shell {
+    width: 100%;
+  }
+
+  .cover-frame {
+    min-height: calc(100svh - 28px);
+    padding: 42px 22px 40px;
+    border-radius: 7px;
+  }
+
+  .cover-ornament-top {
+    margin-bottom: 22px;
+    font-size: 26px;
+  }
+
+  .cover-kicker {
+    font-size: .58rem;
+    letter-spacing: .24em;
+  }
+
+  .cover-rule {
+    margin: 15px auto 23px;
+  }
+
+  .cover-intro {
+    font-size: .69rem;
+  }
+
+  .cover-frame h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+    line-height: .84;
+  }
+
+  .cover-subtitle {
+    margin-top: 18px;
+    font-size: .57rem;
+  }
+
+  .cover-date {
+    margin-top: 26px;
+    font-size: .9rem;
+    gap: 10px;
+  }
+
+  .cover-frame .guest-name {
+    margin-top: 18px;
+    font-size: .68rem;
+  }
+
+  .cover-frame button {
+    margin-top: 24px;
+    min-height: 46px;
+    padding-inline: 22px;
+  }
+
+  .cover-ornament-bottom {
+    bottom: 18px;
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 360px) {
+  .cover-frame {
+    padding-inline: 17px;
+  }
+
+  .cover-frame h1 {
+    font-size: 2.85rem;
+  }
+
+  .cover-date {
+    margin-top: 22px;
+  }
+}
+
+/* Yeni suluboya kapak görseli kendi tipografisini içeriyor. */
+.book-cover .cover-content{display:none}
+
+/* Kitap kapağının arka yüzü: ön yüzdeki yazılar arkadan görünmez. */
+.book-cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:15px;
+  background-image:url('../assets/book_cover_watercolor_back.jpg');
+  background-position:center;
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  transform:rotateY(180deg);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  pointer-events:none;
+}
+.book-cover{transform-style:preserve-3d;backface-visibility:visible;-webkit-backface-visibility:visible}
+
+
+/* Etkinlik kartları: Kına solda, Düğün sağda */
+.events-grid,
+.event-grid,
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.events-grid > *,
+.event-grid > *,
+.events-container > * {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .events-grid,
+  .event-grid,
+  .events-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .event-card {
+    padding: 18px 9px 16px;
+    border-radius: 14px;
+  }
+
+  .event-card h2 {
+    font-size: 1.05rem;
+  }
+
+  .event-date {
+    font-size: .62rem;
+    line-height: 1.35;
+  }
+
+  .event-countdown {
+    gap: 3px;
+  }
+
+  .event-countdown > div {
+    min-width: 0;
+  }
+
+  .event-countdown strong {
+    font-size: 1.05rem;
+  }
+
+  .event-countdown span {
+    font-size: .48rem;
+  }
+}
+
+
+/* Etkinlik sonrası sayaç durumu */
+.event-completed {
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  text-align: center;
+}
+.event-completed strong {
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.event-completed span {
+  font-size: .7rem;
+  opacity: .72;
+}
+.event-countdown.is-completed {
+  opacity: .92;
+}
+
+
+
+
+
+
+
+
+/* Build: imza alanının devamı, ayrı kutu değil */
+.build-footer {
+  width: auto;
+  margin: 7px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-align: center;
+  font-size: 8px;
+  line-height: 1.35;
+  letter-spacing: .13em;
+  opacity: .48;
+}
+
+.build-footer::before {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 1px;
+  margin: 0 auto 7px;
+  background: currentColor;
+  opacity: .22;
+}
+
+.build-footer span {
+  display: block;
+}
+
+/* Kapanış alanı ekranın dibine yaslanır; Build kutu gibi görünmez. */
+.closing,
+.signature,
+.footer-section {
+  margin-bottom: 0 !important;
+}
+
+
+/* İlk açılış ekranındaki yazı panelini kaldır */
+#welcome .welcome-card,
+#welcome .cover-card,
+#welcome .intro-card,
+#welcome .welcome-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* İlk açılış ekranı: yazıların arkasındaki büyük panel/katman yok */
+.cover-frame {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* İlk ekran: yaprak + bokeh dekorasyonu */
+#welcome {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+#welcome::before,
+#welcome::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  z-index: 0;
+}
+#welcome::before {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(105, 132, 104, .16) 0 7px, transparent 28px),
+    radial-gradient(circle at 88% 24%, rgba(190, 177, 130, .14) 0 6px, transparent 25px),
+    radial-gradient(circle at 9% 72%, rgba(120, 145, 116, .13) 0 8px, transparent 30px),
+    radial-gradient(circle at 91% 78%, rgba(194, 181, 137, .16) 0 7px, transparent 28px),
+    radial-gradient(circle at 76% 10%, rgba(150, 166, 143, .10) 0 5px, transparent 24px),
+    radial-gradient(circle at 24% 88%, rgba(194, 181, 137, .11) 0 6px, transparent 26px);
+  filter: blur(3px);
+  opacity: .9;
+}
+#welcome::after {
+  background:
+    url("../assets/leaves/leaf1.svg") no-repeat left 2% top 3% / 145px auto,
+    url("../assets/leaves/leaf2.svg") no-repeat right 2% top 8% / 115px auto,
+    url("../assets/leaves/leaf3.svg") no-repeat right 1% bottom 2% / 155px auto,
+    url("../assets/leaves/leaf4.svg") no-repeat left 1% bottom 7% / 105px auto;
+  opacity: .22;
+  filter: blur(.15px);
+  transform: scale(1.03);
+}
+#welcome > * {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 600px) {
+  #welcome::after {
+    background-size: 112px auto, 90px auto, 120px auto, 82px auto;
+    opacity: .20;
+  }
+}

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 280">
+    <defs>
+
+        <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#A8D08D"></stop>
+            <stop offset="40%" stop-color="#7FAE68"></stop>
+            <stop offset="100%" stop-color="#4E7A52"></stop>
+        </linearGradient>
+
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity=".18"></feDropShadow>
+        </filter>
+
+    </defs>
+
+    <!-- Yaprak -->
+
+    <path filter="url(#shadow)" fill="url(#leafGradient)" d="
+        M70 10
+        C120 30 132 95 112 155
+        C100 192 82 230 70 270
+        C58 230 40 192 28 155
+        C8 95 20 30 70 10
+        Z"></path>
+
+    <!-- Ana damar -->
+
+    <path d="M70 18 L70 264" stroke="#35553A" stroke-width="2" opacity=".45"></path>
+
+    <!-- Yan damarlar -->
+
+    <g stroke="#4F7653" stroke-width="1.2" opacity=".28">
+
+        <path d="M70 50 L95 38"></path>
+        <path d="M70 70 L104 55"></path>
+        <path d="M70 92 L108 76"></path>
+        <path d="M70 114 L110 98"></path>
+        <path d="M70 136 L107 122"></path>
+        <path d="M70 158 L101 145"></path>
+        <path d="M70 180 L95 170"></path>
+        <path d="M70 202 L88 194"></path>
+
+        <path d="M70 50 L45 38"></path>
+        <path d="M70 70 L36 55"></path>
+        <path d="M70 92 L32 76"></path>
+        <path d="M70 114 L30 98"></path>
+        <path d="M70 136 L33 122"></path>
+        <path d="M70 158 L39 145"></path>
+        <path d="M70 180 L45 170"></path>
+        <path d="M70 202 L52 194"></path>
+
+    </g>
+
+</svg>
