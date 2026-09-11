@@ -1,3 +1,22 @@
+/* ===== Kişiye özel davetiye ===== */
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const name = (params.get('davetli') || params.get('isim') || '').trim();
+  if (!name) return;
+
+  function applyGuestName() {
+    const el = document.getElementById('guestName');
+    if (!el) return;
+    el.textContent = `Sevgili ${name}, bu özel günümüzde sizleri aramızda görmekten mutluluk duyarız.`;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyGuestName);
+  } else {
+    applyGuestName();
+  }
+})();
+
 const welcome = document.querySelector('#welcome');
 const scene = document.querySelector('#bookScene');
 const openButton = document.querySelector('#openInvitation');
@@ -33,6 +52,7 @@ function showScene() {
     scene.style.display = 'block';
     scene.classList.add('visible');
     lockPageScroll();
+    if (scrollHint) scrollHint.classList.add('is-visible');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
@@ -44,10 +64,7 @@ book.addEventListener('click', () => {
   if (book.classList.contains('open')) return;
   book.classList.add('open');
   unlockPageScroll();
-  if (scrollHint) {
-    scrollHint.classList.remove('is-hidden');
-    scrollHint.classList.add('is-visible');
-  }
+  if (scrollHint) scrollHint.classList.add('is-hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   book.setAttribute('aria-expanded', 'true');
   book.setAttribute('aria-label', 'Davetiyeniz açıldı');
