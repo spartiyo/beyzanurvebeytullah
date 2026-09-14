@@ -52,7 +52,11 @@ function showScene() {
     scene.style.display = 'block';
     scene.classList.add('visible');
     lockPageScroll();
-    if (scrollHint) scrollHint.classList.add('is-visible');
+    // Aşağı kaydır göstergesi kitap kapağı açılana kadar görünmez.
+    if (scrollHint) {
+      scrollHint.classList.remove('is-visible');
+      scrollHint.classList.remove('is-hidden');
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
@@ -64,7 +68,11 @@ book.addEventListener('click', () => {
   if (book.classList.contains('open')) return;
   book.classList.add('open');
   unlockPageScroll();
-  if (scrollHint) scrollHint.classList.add('is-hidden');
+  // Kitap kapağı açıldıktan sonra aşağı kaydır yönlendirmesini göster.
+  if (scrollHint) {
+    scrollHint.classList.remove('is-hidden');
+    scrollHint.classList.add('is-visible');
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
   book.setAttribute('aria-expanded', 'true');
   book.setAttribute('aria-label', 'Davetiyeniz açıldı');
@@ -157,7 +165,7 @@ if (scrollHint) {
   scrollHint.addEventListener('click', () => {
     scrollHint.classList.add('is-hidden');
     const details = document.querySelector('#details');
-    if (details) details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (details) details.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
   });
 
   window.addEventListener('scroll', () => {
